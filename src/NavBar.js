@@ -1,8 +1,8 @@
 import React from "react";
-import Logo from "./Logo";
-import NavLinks from "./NavLinks";
-import UserControls from "./UserControls";
-import SearchBar from "./SearchBar";
+import Logo from "./components/logo";
+import NavLinks from "./components/navLinks";
+import UserControls from "./components/Navitems";
+import SearchBar from "./components/SearchBar";
 
 const Navbar = () => {
   return (
