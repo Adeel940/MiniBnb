@@ -1,16 +1,17 @@
 import React from "react";
+import { FaBars, FaLanguage, FaUserCircle } from "react-icons/fa";
 
 const UserControls = () => {
   return (
-    <div className="flex items-center space-x-4">
-      <a href="/" className="hover:text-black text-gray-700">Airbnb your home</a>
-      <div className="flex items-center space-x-2">
-        <svg className="h-6 w-6 text-gray-700" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 2a10 10 0 100 20 10 10 0 000-20zM6 12l6 6 6-6H6z" />
-        </svg>
-        <svg className="h-6 w-6 text-gray-700" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 2a10 10 0 100 20 10 10 0 000-20zM6 12l6 6 6-6H6z" />
-        </svg>
+    <div className="flex items-center space-x-6">
+      <a href="/" className="hover:text-black text-gray-700 font-semibold text-sm">Minibnb your home</a>
+      <div className="flex items-center space-x-6">
+        <FaLanguage className="h-10 w-10  text-gray-700 hover:shadow-md hover:border hover:rounded-full p-1" />
+        <div className="flex flex-row border-2 rounded-full border-gray-200 p-2 hover:shadow-md">
+          <FaBars className="h-4 w-4 text-gray-700 mx-1 my-1" />
+          <FaUserCircle className="h-6 w-6 text-gray-700 mx-1" />
+        </div>
+        
       </div>
     </div>
   );

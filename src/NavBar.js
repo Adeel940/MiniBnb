@@ -4,17 +4,22 @@ import NavLinks from "./components/navLinks";
 import UserControls from "./components/Navitems";
 import SearchBar from "./components/SearchBar";
 
+
 const Navbar = () => {
   return (
-    <div className="flex justify-between items-center py-4 px-8 shadow-lg">
-      <Logo />
-      <div className="flex space-x-6">
+    <header className="w-full bg-white shadow-md">
+      <div className="flex justify-between items-center px-8 ">
+       
+        <Logo />
         <NavLinks />
+        <UserControls />
+      </div>
+      <div className="w-full flex justify-center pb-4">
         <SearchBar />
       </div>
-      <UserControls />
-    </div>
+    </header>
   );
 };
 
 export default Navbar;
+
