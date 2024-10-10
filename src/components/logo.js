@@ -5,7 +5,7 @@ const Logo = () => {
     <div className="flex items-center">
       <a  href="/">
         <img
-          src="fbnb.gif"
+          src="Images/fbnb.gif"
           alt="airbnb"
           className="h-24 w-32"
         />
