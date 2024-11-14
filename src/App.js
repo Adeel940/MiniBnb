@@ -1,6 +1,8 @@
 import React from "react";
 import Navbar from "./NavBar";
-import Experiences from "./Experiences";
+import Experiences from "./components/Home/Experiences";
+import Footer from "./Footer";
+
 
 
 
@@ -10,6 +12,7 @@ function App() {
     <div className="App">
      <Navbar/>
      <Experiences/>
+     <Footer/>
     </div>
   );
 }

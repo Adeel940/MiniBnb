@@ -3,7 +3,7 @@ import { FaFire, FaTree, FaRegCompass } from "react-icons/fa";
 import { GiIsland, GiTreehouse } from "react-icons/gi";
 import { MdOutlineRestaurant } from "react-icons/md";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import "./Categories copy.css"
+import "./Categories.css"
 
 const Categories = () => {
     const categories = [

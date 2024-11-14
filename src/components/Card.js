@@ -38,7 +38,7 @@ const Card = ({ images, title, host, soldOut }) => {
         <h3 className="text-lg font-semibold">{title}</h3>
         <p className="text-sm text-gray-500">Hosted by {host}</p>
         <p className={`text-sm font-semibold ${soldOut ? 'text-red-500' : 'text-green-500'}`}>
-          {soldOut ? 'Sold out' : 'Available'}
+          {soldOut ? 'Soldout' : 'Available'}
         </p>
       </div>
     </div>
