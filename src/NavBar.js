@@ -5,19 +5,17 @@ import UserControls from "./components/Navitems";
 import SearchBar from "./components/SearchBar";
 import Categories from "./components/Categories";
 
-
-const Navbar = () => {
+const Navbar = ({ searchQuery, setSearchQuery }) => {
   return (
     <header className="w-full bg-white">
       <div className="border">
         <div className="flex justify-between items-center px-8 ">
-
           <Logo />
           <NavLinks />
           <UserControls />
         </div>
         <div className="w-full flex justify-center pb-4">
-          <SearchBar />
+          <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         </div>
       </div>
       <Categories />
@@ -26,4 +24,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

@@ -4,11 +4,12 @@ const { getAllListings, getListingById, searchListings } = require('../controlle
 
 // Route to get all listings
 router.get('/', getAllListings);
+// Route to search listings
+router.get('/search', searchListings);
 
 // Route to get a listing by ID
 router.get('/:id', getListingById);
 
-// Route to search listings
-router.get('/search', searchListings);
+
 
 module.exports = router;

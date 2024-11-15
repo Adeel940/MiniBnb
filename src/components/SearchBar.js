@@ -1,13 +1,15 @@
 import React from "react";
 import { FaSearch } from "react-icons/fa";
 
-const SearchBar = () => {
+const SearchBar = ({ searchQuery, setSearchQuery }) => {
   return (
     <div className="flex items-center bg-white rounded-full shadow-md pb-2 px-3 space-x-3 w-3/5 border border-gray-100">
       <div className="border-r pr-3">
         <span className="text-xs font-semibold text-gray-500">Where</span>
         <input
           type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search destinations"
           className="text-sm text-gray-900 outline-none w-full"
         />
