@@ -7,7 +7,7 @@ const getAllListings = (req, res) => {
 
 // Controller: Get a listing by ID
 const getListingById = (req, res) => {
-    console.log("--------------------------IN ID");
+ 
     const id = parseInt(req.params.id, 10);
     const listing = listings.find((item) => item.id === id);
     if (listing) {

@@ -10,7 +10,7 @@ const Experiences = ({ searchQuery }) => {
         let url = "http://localhost:5000/api/listings";
         console.log(searchQuery);
         if (searchQuery) {
-          url = `http://localhost:5000/api/listings/search?query=${searchQuery}`; // Append the search query
+          url = ` ${searchQuery}`; // Append the search query
         }
         console.log(url);
 
