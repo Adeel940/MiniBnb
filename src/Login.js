@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { login } from './services/auth';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -8,7 +9,7 @@ const Login = () => {
   });
 
   const [message, setMessage] = useState('');
-  const [token, setToken] = useState('');
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,9 +19,10 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await login(formData);
-      setToken(response.data.token);
       setMessage('Login successful!');
       setFormData({ email: '', password: '' }); // Clear form
+      // Redirect to experiences page after successful login
+      setTimeout(() => navigate('/'), 1000); // Optional delay for user to see the message
     } catch (error) {
       setMessage(error.response?.data?.message || 'An error occurred');
     }
@@ -30,7 +32,7 @@ const Login = () => {
     <div className="flex items-center justify-center h-screen bg-gray-100">
       <div className="w-full max-w-md p-8 space-y-4 bg-white shadow rounded">
         <h2 className="text-2xl font-bold text-center">Login</h2>
-        {message && <p className="text-center text-red-500">{message}</p>}
+        {message && <p className="text-center text-blue-500">{message}</p>}
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="email"
@@ -52,17 +54,11 @@ const Login = () => {
           />
           <button
             type="submit"
-            className="w-full px-4 py-2 font-bold text-white bg-green-500 rounded hover:bg-green-600"
+            className="w-full px-4 py-2 font-bold text-white bg-blue-400 rounded hover:bg-blue-500"
           >
             Login
           </button>
         </form>
-        {token && (
-          <div className="mt-4 text-center">
-            <p className="text-sm text-gray-500">Token:</p>
-            <p className="break-words">{token}</p>
-          </div>
-        )}
       </div>
     </div>
   );

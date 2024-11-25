@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
-import { register } from './services/auth';
+import React, { useState } from "react";
+import { register } from "./services/auth";
+import { Link } from "react-router-dom";
 
-const Register = () => {
+const Register = ({ onRegisterSuccess }) => {
   const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: '',
+    username: "",
+    email: "",
+    password: "",
   });
 
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -19,9 +20,10 @@ const Register = () => {
     try {
       const response = await register(formData);
       setMessage(response.data.message);
-      setFormData({ username: '', email: '', password: '' }); // Clear form
+      setFormData({ username: "", email: "", password: "" }); // Clear form
+      onRegisterSuccess(); // Navigate to the login page
     } catch (error) {
-      setMessage(error.response?.data?.message || 'An error occurred');
+      setMessage(error.response?.data?.message || "An error occurred");
     }
   };
 
@@ -65,6 +67,14 @@ const Register = () => {
             Register
           </button>
         </form>
+        <div className="mt-4 text-center">
+          <p className="text-sm text-gray-500">
+            Already have an account?{" "}
+            <Link to="/login" className="text-blue-500 hover:underline">
+              Login here
+            </Link>
+          </p>
+        </div>
       </div>
     </div>
   );

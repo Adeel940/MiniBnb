@@ -15,7 +15,7 @@
     },
     {
         "id": 3,
-        "images": ["Images/3.jpg", "Images/1.jpg", "Images/5.jpg"],
+        "images": ["Images/5.jpg", "Images/1.jpg", "Images/3.jpg"],
         "title": "Go VIP with Kevin Hart",
         "host": "Kevin Hart",
         "status": "Available"

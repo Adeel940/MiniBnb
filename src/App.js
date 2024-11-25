@@ -1,44 +1,60 @@
-// import React, { useState } from "react";
-// import { Routes, Route } from "react-router-dom";
-// import Navbar from "./NavBar";
-// import Experiences from "./components/Home/Experiences";
-// import ListingDetails from "./components/Listings/ListingDetails.js";
-// import BookingPage from "./components/Bookings/BookingPage.js";
-// import Footer from "./Footer";
+import React, { useState } from "react";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import Navbar from "./NavBar";
+import Experiences from "./components/Home/Experiences";
+import ListingDetails from "./components/Listings/ListingDetails.js";
+import BookingPage from "./components/Bookings/BookingPage.js";
+import Footer from "./Footer";
+import Register from "./Register.js";
+import Login from "./Login.js";
 
-// function App() {
-//   const [searchQuery, setSearchQuery] = useState("");
+function App() {
+  const [searchQuery, setSearchQuery] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
 
-//   return (
-//     <div className="App">
-//       <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-//       <Routes>
-//         <Route path="/" element={<Experiences searchQuery={searchQuery} />} />
-//         <Route path="/listings/:id" element={<ListingDetails />} />
-//         <Route path="/book/:id" element={<BookingPage />} />
-//       </Routes>
-//       <Footer />
-//     </div>
-//   );
-// }
+  // Check if the current path is register or login
+  const hideNavbarAndFooter =
+    location.pathname === "/register" || location.pathname === "/login";
 
-// export default App;
+  const handleRegisterSuccess = () => {
+    navigate("/login");
+  };
 
+  const handleLoginSuccess = () => {
+    navigate("/");
+  };
 
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Register from './Register';
-import Login from './Login';
-
-const App = () => {
   return (
-    <Router>
+    <div className="App">
+      {!hideNavbarAndFooter && (
+        <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      )}
       <Routes>
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/"
+          element={<Experiences searchQuery={searchQuery} />}
+        />
+        <Route
+          path="/listings/:id"
+          element={<ListingDetails />}
+        />
+        <Route
+          path="/book/:id"
+          element={<BookingPage />}
+        />
+        <Route
+          path="/register"
+          element={<Register onRegisterSuccess={handleRegisterSuccess} />}
+        />
+        <Route
+          path="/login"
+          element={<Login onLoginSuccess={handleLoginSuccess} />}
+        />
       </Routes>
-    </Router>
+      {!hideNavbarAndFooter && <Footer />}
+    </div>
   );
-};
+}
 
 export default App;
