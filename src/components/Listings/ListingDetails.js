@@ -34,17 +34,22 @@ const ListingDetails = () => {
     return <div>Error: {error}</div>;
   }
 
+  console.log(listing.images);
   return (
     <div className="container mx-auto py-4">
       <h2 className="text-3xl font-semibold mb-6">Listing Details</h2>
       {listing && (
         <div>
-          <img src={listing.image} alt={listing.title} className="w-full h-64 object-cover mb-4" />
+          <img
+            src={listing.images?.[0] || "default-image.jpg"} // Fallback to default image if not provided
+            alt={listing.title}
+            className="w-full h-64 object-cover mb-4"
+          />
           <h3 className="text-2xl font-bold">{listing.title}</h3>
           <p className="text-gray-600">{listing.description}</p>
           <p className="mt-4">Host: {listing.host}</p>
           <p>Status: {listing.status}</p>
-          
+
           {/* Button to redirect to the booking page */}
           <Link to={`/book/${id}`}>
             <button className="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">

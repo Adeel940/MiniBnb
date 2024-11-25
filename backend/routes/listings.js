@@ -1,24 +1,16 @@
-// const express = require('express');
-// const router = express.Router();
-// const { getAllListings, getListingById, searchListings } = require('../controllers/listingsController');
-
-// // Route to get all listings
-// router.get('/', getAllListings);
-// // Route to search listings
-// router.get('/search', searchListings);
-
-// // Route to get a listing by ID
-// router.get('/:id', getListingById);
-
-
-
-// module.exports = router;
-
-
 const express = require('express');
 const router = express.Router();
-const { getListings } = require('../controllers/listingsController');
+const { getListings, addListing, deleteListing, getListingById, searchListingsByTitle } = require('../controllers/listingsController');
+const authenticate = require('../middleware/authenticate');
+const isAdmin = require('../middleware/isAdmin');
 
-router.get('/', getListings);
+// Public route for fetching listings or searching by title
+router.get('/', getListings); // No middleware here
+router.get('/search', searchListingsByTitle); // Search listings by title
+router.get('/:id', getListingById);
+
+// Admin routes
+router.post('/', authenticate, isAdmin, addListing);
+router.delete('/:id', authenticate, isAdmin, deleteListing);
 
 module.exports = router;

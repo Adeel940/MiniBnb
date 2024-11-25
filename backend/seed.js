@@ -7,17 +7,33 @@ dotenv.config();
 const seedListings = async () => {
     const sampleListings = [
         {
-            images: ["Images/1.jpg", "Images/3.jpg", "Images/2.jpg"],
-            title: "Playdate at Polly Pocket’s Compact",
-            host: "Polly Pocket",
-            status: "Sold out",
+            "id": 1,
+            "images": ["Images/1.jpg", "Images/3.jpg", "Images/2.jpg"],
+            "title": "Playdate at Polly Pocket’s Compact",
+            "host": "Polly Pocket",
+            "status": "Sold out"
         },
         {
-            images: ["Images/2.jpg", "Images/1.jpg", "Images/3.jpg"],
-            title: "Sleepover at Polly Pocket’s Compact",
-            host: "Polly Pocket",
-            status: "Sold out",
+            "id": 2,
+            "images": ["Images/2.jpg", "Images/1.jpg", "Images/3.jpg"],
+            "title": "Sleepover at Polly Pocket’s Compact",
+            "host": "Polly Pocket",
+            "status": "Sold out"
         },
+        {
+            "id": 3,
+            "images": ["Images/5.jpg", "Images/1.jpg", "Images/3.jpg"],
+            "title": "Go VIP with Kevin Hart",
+            "host": "Kevin Hart",
+            "status": "Available"
+        }, 
+        {
+            "id": 4,
+            "images": ["Images/3.jpg", "Images/1.jpg", "Images/5.jpg"],
+            "title": "Beach room for party",
+            "host": "khaby Lame",
+            "status": "Available"
+        }
     ];
 
     try {

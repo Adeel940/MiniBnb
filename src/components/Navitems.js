@@ -33,13 +33,19 @@ const UserControls = () => {
           <div className="absolute top-12 right-0 bg-white shadow-md rounded-lg w-40">
             <ul className="flex flex-col">
               <li
-                className="p-2 hover:bg-gray-100 cursor-pointer"
+                className="px-2 pt-1 hover:bg-gray-100 cursor-pointer"
+                onClick={() => handleNavigate("/AdminPanel")}
+              >
+                Admin Panel
+              </li>
+              <li
+                className="px-2 pt-1 hover:bg-gray-100 cursor-pointer"
                 onClick={() => handleNavigate("/login")}
               >
                 Login
               </li>
               <li
-                className="p-2 hover:bg-gray-100 cursor-pointer"
+                className="px-2 pt-1 pb-1 hover:bg-gray-100 cursor-pointer"
                 onClick={() => handleNavigate("/register")}
               >
                 Register

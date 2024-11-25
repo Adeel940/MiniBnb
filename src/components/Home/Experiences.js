@@ -10,7 +10,7 @@ const Experiences = ({ searchQuery }) => {
         let url = "http://localhost:5000/api/listings";
         console.log(searchQuery);
         if (searchQuery) {
-          url = ` ${searchQuery}`; // Append the search query
+          url = `http://localhost:5000/api/listings/search?query=${searchQuery}`;
         }
         console.log(url);
 
@@ -31,8 +31,8 @@ const Experiences = ({ searchQuery }) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {experiences.map((experience) => (
           <Card
-            id={experience.id}
-            key={experience.id}
+            id={experience._id}
+            key={experience._id}
             images={experience.images}
             title={experience.title}
             host={experience.host}

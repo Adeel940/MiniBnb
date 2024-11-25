@@ -7,6 +7,7 @@ import BookingPage from "./components/Bookings/BookingPage.js";
 import Footer from "./Footer";
 import Register from "./Register.js";
 import Login from "./Login.js";
+import AdminPanel from './AdminPanel';
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -21,8 +22,12 @@ function App() {
     navigate("/login");
   };
 
-  const handleLoginSuccess = () => {
-    navigate("/");
+  const handleLoginSuccess = (role) => {
+    if (role === "Admin") {
+      navigate("/AdminPanel"); // Redirect to admin panel
+    } else {
+      navigate("/"); // Redirect to user dashboard
+    }
   };
 
   return (
@@ -51,6 +56,7 @@ function App() {
           path="/login"
           element={<Login onLoginSuccess={handleLoginSuccess} />}
         />
+        <Route path="/AdminPanel" element={<AdminPanel />} />
       </Routes>
       {!hideNavbarAndFooter && <Footer />}
     </div>

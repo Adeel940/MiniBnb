@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { login } from './services/auth';
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({ onLoginSuccess }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -19,10 +19,14 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await login(formData);
+      const { user } = response; // Ensure the backend returns a `user` object with `role`
       setMessage('Login successful!');
       setFormData({ email: '', password: '' }); // Clear form
-      // Redirect to experiences page after successful login
-      setTimeout(() => navigate('/'), 1000); // Optional delay for user to see the message
+
+      // Pass the role to the success handler
+      if (onLoginSuccess) {
+        onLoginSuccess(user.role);
+      }
     } catch (error) {
       setMessage(error.response?.data?.message || 'An error occurred');
     }
