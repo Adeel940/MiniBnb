@@ -19,8 +19,9 @@ const Login = ({ onLoginSuccess }) => {
     e.preventDefault();
     try {
       const response = await login(formData);
-      const { user } = response; // Ensure the backend returns a `user` object with `role`
+      const { user, token } = response; // Ensure the backend returns a `user` object with `role`
       setMessage('Login successful!');
+      localStorage.setItem("token", token);
       setFormData({ email: '', password: '' }); // Clear form
 
       // Pass the role to the success handler
